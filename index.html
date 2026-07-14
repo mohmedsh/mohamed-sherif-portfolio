@@ -1,168 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Mohamed Sherif — Network Infrastructure & Security Engineer portfolio." />
-  <meta name="theme-color" content="#07111f" />
   <title>Mohamed Sherif | Network Infrastructure & Security Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="grid-bg"></div>
-  <header class="header">
-    <a class="brand" href="#home"><span>MS</span> Mohamed Sherif</a>
-    <nav class="nav" id="navMenu">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mohamed Sherif home">
+      <span class="brand-mark">MS</span>
+      <span><strong>Mohamed Sherif</strong><small>Network & Security Engineer</small></span>
+    </a>
+    <nav id="nav" class="nav">
+      <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
-      <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <button id="langToggle" class="icon-btn" type="button" aria-label="Switch language">AR</button>
+      <button id="menuToggle" class="menu-btn" type="button" aria-label="Open menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <main>
-    <section class="hero section" id="home">
+  <main id="top">
+    <section class="hero section-shell">
       <div class="hero-copy reveal">
-        <div class="availability"><span></span> Open to Network & Security opportunities</div>
-        <p class="eyebrow">NETWORK • SECURITY • AUTOMATION</p>
-        <h1>Building secure, reliable<br><span>enterprise infrastructure.</span></h1>
-        <p class="hero-text">I’m Mohamed Sherif, a Network Infrastructure & Security Engineer with hands-on experience in Cisco enterprise networking, FortiGate, Windows Server, VMware, Linux, monitoring, and infrastructure automation.</p>
+        <div class="status-pill"><span></span> Open to Network & Security opportunities</div>
+        <p class="eyebrow">NETWORK INFRASTRUCTURE • SECURITY • AUTOMATION</p>
+        <h1>Engineering secure,<br><span>reliable enterprise</span><br>infrastructure.</h1>
+        <p class="hero-text">Network Infrastructure & Security Engineer supporting enterprise manufacturing environments, combining Cisco networking, Fortinet security, Windows Server, VMware, Linux, monitoring, and Python automation.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#projects">View My Projects</a>
-          <a class="btn secondary" href="assets/Mohamed_Sherif_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="btn secondary" href="assets/Mohamed_Sherif_CV.pdf" download>Download CV <span>↓</span></a>
         </div>
-        <div class="quick-stats">
-          <div><strong>3</strong><span>Production Sites</span></div>
-          <div><strong>1,200+</strong><span>Users Supported</span></div>
-          <div><strong>7+</strong><span>Enterprise Projects</span></div>
+        <div class="metrics">
+          <div><strong>3</strong><span>Production sites</span></div>
+          <div><strong>1,200+</strong><span>Enterprise users</span></div>
+          <div><strong>7+</strong><span>Systems & automation projects</span></div>
         </div>
       </div>
-      <div class="hero-visual reveal">
-        <div class="photo-shell">
-          <div class="photo-glow"></div>
+
+      <div class="hero-visual reveal delay-1">
+        <div class="portrait-wrap">
+          <div class="portrait-glow"></div>
           <img src="assets/profile.jpg" alt="Mohamed Sherif" />
-          <div class="floating-card card-one"><span class="dot green"></span> Infrastructure Online</div>
-          <div class="floating-card card-two">FortiGate • Cisco • VMware</div>
+          <div class="floating-card card-one"><span class="dot"></span><div><small>Current focus</small><strong>Enterprise Infrastructure</strong></div></div>
+          <div class="floating-card card-two"><small>Core stack</small><strong>Cisco • FortiGate • VMware</strong></div>
+          <div class="floating-card card-three"><small>Automation</small><strong>Python • Flask • APIs</strong></div>
+        </div>
+        <div class="availability-card"><span></span><div><small>SYSTEM STATUS</small><strong>Infrastructure online</strong></div><b>99.9%</b></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <span>CISCO ENTERPRISE</span><span>FORTINET SECURITY</span><span>VMWARE</span><span>WINDOWS SERVER</span><span>ZABBIX</span><span>PYTHON AUTOMATION</span>
+    </section>
+
+    <section id="about" class="section-shell about-grid">
+      <div class="section-heading reveal"><p class="eyebrow">PROFILE</p><h2>Infrastructure built for real business operations.</h2></div>
+      <div class="about-content reveal delay-1">
+        <p>I work across network, security, systems, monitoring, and automation—not as isolated technologies, but as one operational platform. My focus is maintaining availability, improving security, reducing repetitive work, and producing clear technical documentation.</p>
+        <p>At Canal Sugar, I support infrastructure across three production sites, working with Cisco enterprise switching, FortiGate HA and SD-WAN, Windows Server, VMware, Linux, Zabbix, and centralized logging.</p>
+        <div class="mini-grid">
+          <div><span>Location</span><strong>Cairo, Egypt</strong></div>
+          <div><span>Specialization</span><strong>Network Infrastructure & Security</strong></div>
+          <div><span>Automation</span><strong>Python, Flask, REST APIs</strong></div>
+          <div><span>Languages</span><strong>Arabic • English B2</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="section-heading reveal">
-        <p class="eyebrow">ABOUT ME</p>
-        <h2>Engineering infrastructure that stays available, secure, and scalable.</h2>
+    <section id="expertise" class="section-shell section-block">
+      <div class="section-title-row reveal"><div><p class="eyebrow">CORE EXPERTISE</p><h2>Technical capability with operational depth.</h2></div><p>From switching and firewall policy to monitoring and automation, each area supports one goal: stable, secure, measurable infrastructure.</p></div>
+      <div class="expertise-grid">
+        <article class="expertise-card reveal"><div class="card-icon">01</div><h3>Enterprise Networking</h3><p>Cisco Catalyst 9500, 9300, 9200, SG350, C1000, WLC 9800, VLANs, STP, EtherChannel, OSPF, Layer 2 and Layer 3 operations.</p><div class="tags"><span>Cisco</span><span>Routing</span><span>Switching</span><span>Wireless</span></div></article>
+        <article class="expertise-card reveal delay-1"><div class="card-icon">02</div><h3>Network Security</h3><p>FortiGate HA, SD-WAN, IPSec and SSL VPN, NAT, IPS, application control, web filtering, SSL inspection, FortiAnalyzer, and F5 ASM.</p><div class="tags"><span>FortiGate</span><span>VPN</span><span>NGFW</span><span>WAF</span></div></article>
+        <article class="expertise-card reveal delay-2"><div class="card-icon">03</div><h3>Infrastructure & Systems</h3><p>Windows Server, Active Directory, DNS, DHCP, VMware ESXi and vCenter, Linux administration, backup operations, and enterprise support.</p><div class="tags"><span>Windows</span><span>VMware</span><span>Linux</span><span>AD</span></div></article>
+        <article class="expertise-card reveal"><div class="card-icon">04</div><h3>Monitoring & Automation</h3><p>Zabbix, Syslog, Wazuh SIEM, Python, Flask, REST APIs, reporting platforms, workflow systems, dashboards, and operational tooling.</p><div class="tags"><span>Zabbix</span><span>Wazuh</span><span>Python</span><span>Flask</span></div></article>
       </div>
-      <div class="about-grid reveal">
-        <div class="about-card">
-          <p>I support enterprise environments across networking, security, systems, virtualization, monitoring, and automation. My focus is practical: reduce downtime, improve visibility, document clearly, and automate repetitive operations.</p>
+    </section>
+
+    <section id="experience" class="section-shell section-block">
+      <div class="section-title-row reveal"><div><p class="eyebrow">EXPERIENCE</p><h2>Supporting infrastructure where downtime matters.</h2></div></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-date">NOV 2025 — PRESENT</div><div class="timeline-content"><span>CANAL SUGAR</span><h3>Network Infrastructure & Security Engineer</h3><p>Supporting enterprise network, security, servers, virtualization, monitoring, and automation across three production sites. Managing Cisco, FortiGate, VMware, Windows Server, Linux, Zabbix, and operational documentation.</p><ul><li>FortiGate HA, SD-WAN, VPN, NAT and security policy administration</li><li>Cisco switching, VLAN, routing, EtherChannel and wireless operations</li><li>Python and Flask tools for reporting and IT workflow automation</li></ul></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">JUN 2024 — NOV 2025</div><div class="timeline-content"><span>ISON XPERIENCES</span><h3>Senior IT Support Engineer</h3><p>Delivered infrastructure and endpoint support for more than 1,200 enterprise users in a high-volume environment, supporting Active Directory, Microsoft 365, VPN, Wi-Fi, Windows and network incidents.</p></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">JUN 2022 — APR 2023</div><div class="timeline-content"><span>BRAINS COMPANY</span><h3>Technical Support Engineer</h3><p>Installed and maintained Windows systems, network equipment, CCTV, printers, and end-user devices while resolving hardware, software, and connectivity issues.</p></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell section-block projects-section">
+      <div class="section-title-row reveal"><div><p class="eyebrow">SELECTED PROJECTS</p><h2>Systems designed around real workflows.</h2></div><p>Two flagship platforms combining business process design, usability, reporting, permissions, and automation.</p></div>
+
+      <article class="project-feature reveal">
+        <div class="project-copy"><span class="project-number">01 / FLEET OPERATIONS</span><h3>Fleet Request Management System</h3><p>A complete enterprise workflow for vehicle requests—from requester submission and fleet review to procurement rental, assignment, notifications, cancellation rules, availability checks, and final closure.</p><div class="project-highlights"><span>Role-based workflow</span><span>Vehicle & driver allocation</span><span>Email notifications</span><span>Availability engine</span><span>Audit trail</span><span>Configurable base URL</span></div><div class="tech-line"><b>TECHNOLOGY</b> Python • Flask • SQLAlchemy • Bootstrap • SQLite/MySQL</div></div>
+        <div class="product-window fleet-window">
+          <div class="window-top"><i></i><i></i><i></i><span>Fleet Operations Dashboard</span></div>
+          <div class="dashboard-body"><aside><b>FRMS</b><span class="active">Overview</span><span>Requests</span><span>Fleet</span><span>Availability</span><span>Reports</span></aside><div class="dash-main"><div class="dash-head"><div><small>Fleet control center</small><strong>Good morning, Mohamed</strong></div><button>+ New request</button></div><div class="stat-row"><div><small>Open requests</small><strong>24</strong><em>+8.4%</em></div><div><small>Available vehicles</small><strong>38</strong><em>Live</em></div><div><small>Pending rental</small><strong>07</strong><em>Action</em></div></div><div class="mock-table"><div class="table-head"><span>REQUEST</span><span>DATE</span><span>VEHICLE</span><span>STATUS</span></div><div><span>FR-2026-0412</span><span>15 Jul, 09:00</span><span>Pickup 4x4</span><b class="status approved">Approved</b></div><div><span>FR-2026-0413</span><span>16 Jul, 07:30</span><span>Crane 30T</span><b class="status rent">Rental</b></div><div><span>FR-2026-0414</span><span>16 Jul, 13:00</span><span>Bus 28 Seat</span><b class="status pending">Pending</b></div></div></div></div>
         </div>
-        <div class="about-points">
-          <article><span>01</span><div><h3>Enterprise Networking</h3><p>Cisco switching, routing, VLANs, STP, EtherChannel, OSPF, wireless, and troubleshooting.</p></div></article>
-          <article><span>02</span><div><h3>Security Operations</h3><p>FortiGate HA, SD-WAN, VPN, NAT, IPS, application control, web filtering, and SSL inspection.</p></div></article>
-          <article><span>03</span><div><h3>Automation & Monitoring</h3><p>Python, Flask, Zabbix, Wazuh, Syslog, reporting platforms, and operational workflow tools.</p></div></article>
+      </article>
+
+      <article class="project-feature reverse reveal">
+        <div class="project-copy"><span class="project-number">02 / RETAIL ERP</span><h3>Soft4U Market ERP</h3><p>An Arabic-first retail ERP connecting POS, inventory, suppliers, purchasing, batches and expiry, accounting, shifts, permissions, audit logs, and operational reports inside one integrated platform.</p><div class="project-highlights"><span>POS & shift control</span><span>Batch / FEFO inventory</span><span>Purchasing & supplier ledger</span><span>Accounting engine</span><span>RBAC & audit logs</span><span>Arabic / English</span></div><div class="tech-line"><b>TECHNOLOGY</b> Python • Flask • SQLAlchemy • JavaScript • Bootstrap • SQLite/MySQL</div></div>
+        <div class="product-window erp-window">
+          <div class="window-top"><i></i><i></i><i></i><span>Soft4U Market ERP</span></div>
+          <div class="erp-body"><aside><b>Soft4U</b><span class="active">لوحة التحكم</span><span>نقطة البيع</span><span>الأصناف</span><span>المخزون</span><span>المشتريات</span><span>الحسابات</span></aside><div class="erp-main"><div class="erp-header"><div><small>نظرة عامة</small><strong>لوحة التحكم</strong></div><span>14 يوليو 2026</span></div><div class="erp-stats"><div><small>مبيعات اليوم</small><strong>42,850 ج.م</strong><em>+12.6%</em></div><div><small>إجمالي الفواتير</small><strong>186</strong><em>اليوم</em></div><div><small>أصناف منخفضة</small><strong>14</strong><em>تنبيه</em></div></div><div class="chart-card"><div class="chart-title"><strong>تحليل المبيعات</strong><span>آخر 7 أيام</span></div><div class="bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:78%"></i><i style="height:58%"></i><i style="height:86%"></i><i style="height:72%"></i></div></div></div></div>
         </div>
-      </div>
+      </article>
     </section>
 
-    <section class="section" id="skills">
-      <div class="section-heading reveal">
-        <p class="eyebrow">TECHNICAL STACK</p>
-        <h2>Tools I use to run and secure modern infrastructure.</h2>
-      </div>
-      <div class="skills-grid reveal">
-        <div class="skill-card"><div class="skill-icon">↔</div><h3>Networking</h3><p>Cisco C9500, C9300, C9200, SG350, C1000, WLC 9800, OSPF, VLAN, STP, EtherChannel.</p></div>
-        <div class="skill-card"><div class="skill-icon">◈</div><h3>Security</h3><p>FortiGate, FortiAnalyzer, FortiAP, HA, SD-WAN, IPSec VPN, SSL VPN, IPS, NAT, WAF.</p></div>
-        <div class="skill-card"><div class="skill-icon">▣</div><h3>Infrastructure</h3><p>Windows Server, Active Directory, DNS, DHCP, VMware ESXi, vCenter, Linux administration.</p></div>
-        <div class="skill-card"><div class="skill-icon">⌘</div><h3>Automation</h3><p>Python, Flask, REST APIs, SQLite, MySQL, Git, GitHub, HTML, CSS, operational dashboards.</p></div>
-      </div>
+    <section class="section-shell credentials section-block">
+      <div class="section-heading reveal"><p class="eyebrow">PROFESSIONAL DEVELOPMENT</p><h2>Continuous learning across infrastructure and security.</h2></div>
+      <div class="credential-list reveal delay-1"><div><strong>Networking</strong><span>CCNA • CCNP Enterprise</span></div><div><strong>Security</strong><span>FortiGate • FortiAnalyzer • F5 LTM • F5 ASM • Kaspersky EDR • ITI Cybersecurity</span></div><div><strong>Systems</strong><span>Windows Server • Linux • VMware ESXi & vCenter</span></div><div><strong>Monitoring</strong><span>Zabbix • Wazuh SIEM • Syslog • Log Analysis</span></div></div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="section-heading reveal">
-        <p class="eyebrow">EXPERIENCE</p>
-        <h2>Supporting business-critical environments.</h2>
-      </div>
-      <div class="timeline reveal">
-        <article class="timeline-item">
-          <div class="time">2025 — Present</div>
-          <div class="role"><h3>Network Infrastructure & Security Engineer</h3><h4>Canal Sugar</h4><p>Supporting enterprise network infrastructure across three production sites, administering Cisco, FortiGate, VMware, Windows Server, Linux, monitoring, automation, and technical documentation.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="time">2024 — 2025</div>
-          <div class="role"><h3>Senior IT Support Engineer</h3><h4>ISON Xperiences</h4><p>Delivered infrastructure and end-user support for more than 1,200 enterprise users while meeting SLA targets and resolving network, VPN, Wi-Fi, Windows, and security incidents.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="time">2022 — 2023</div>
-          <div class="role"><h3>Technical Support Engineer</h3><h4>Brains Company</h4><p>Installed and maintained Windows systems, enterprise network devices, CCTV, printers, and user equipment across customer environments.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="section-heading reveal">
-        <p class="eyebrow">FEATURED PROJECTS</p>
-        <h2>Enterprise systems built to solve real operational problems.</h2>
-      </div>
-      <div class="projects-grid">
-        <article class="project-card reveal">
-          <div class="project-screen fleet-screen">
-            <div class="screen-top"><span></span><span></span><span></span></div>
-            <div class="screen-title">Fleet Request Management</div>
-            <div class="workflow"><b>Requester</b><i>→</i><b>Fleet</b><i>→</i><b>Procurement</b><i>→</i><b>Complete</b></div>
-            <div class="screen-row"><span>Vehicle Availability</span><strong>Live</strong></div>
-            <div class="screen-row"><span>Approval Workflow</span><strong>Automated</strong></div>
-            <div class="screen-row"><span>Email Notifications</span><strong>Enabled</strong></div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span>FLASK</span><span>SQL</span><span>RBAC</span></div>
-            <h3>Fleet Request Management System</h3>
-            <p>SAP TM-inspired workflow for vehicle requests, approval, rental, procurement, assignment, availability checks, notifications, and full status tracking.</p>
-            <ul><li>Requester → Fleet → Procurement workflow</li><li>Vehicle and driver availability validation</li><li>Professional email notifications and audit trail</li></ul>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-screen market-screen">
-            <div class="screen-top"><span></span><span></span><span></span></div>
-            <div class="screen-title">Soft4U Market ERP</div>
-            <div class="metric-grid"><div><small>Sales</small><b>24.8K</b></div><div><small>Stock</small><b>98%</b></div><div><small>Orders</small><b>128</b></div></div>
-            <div class="bar-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="screen-row"><span>Accounting Engine</span><strong>Balanced</strong></div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span>ERP</span><span>POS</span><span>ACCOUNTING</span></div>
-            <h3>Soft4U Market ERP</h3>
-            <p>Integrated retail ERP covering POS, inventory, suppliers, purchases, sales, batches, FEFO, accounting, permissions, audit logs, and management reports.</p>
-            <ul><li>Purchases, sales, returns, damage, and stock counts</li><li>Batch tracking, FEFO, expiry management</li><li>Journal engine, ledgers, trial balance, and P&amp;L</li></ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="contact-card reveal">
-        <div><p class="eyebrow">LET’S CONNECT</p><h2>Looking for a Network, Security, or Infrastructure Engineer?</h2><p>Available for opportunities, technical collaboration, and enterprise automation projects.</p></div>
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:mohmedsherif599@gmail.com">Email Me</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/mohamed-sherif-sand19999" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn secondary" href="https://wa.me/201027202329" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
+    <section id="contact" class="contact section-shell reveal">
+      <div><p class="eyebrow">LET'S CONNECT</p><h2>Looking for someone who understands both infrastructure and operations?</h2><p>Available for Network Infrastructure, Network Security, and Infrastructure Automation opportunities.</p></div>
+      <div class="contact-actions"><a class="btn primary" href="mailto:mohmedsherif599@gmail.com">Email me <span>↗</span></a><a class="btn secondary" href="https://www.linkedin.com/in/mohamed-sherif-sand19999" target="_blank" rel="noopener">LinkedIn <span>↗</span></a><a class="text-link" href="tel:+201027202329">+20 102 720 2329</a></div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Mohamed Sherif. Built for GitHub Pages.</p>
-  </footer>
-
+  <footer><div class="brand"><span class="brand-mark">MS</span><span><strong>Mohamed Sherif</strong><small>Network Infrastructure & Security Engineer</small></span></div><p>© 2026 Mohamed Sherif. Built for clarity, credibility, and impact.</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
