@@ -1,12 +1,9 @@
 # Mohamed Sherif Portfolio
-Premium static portfolio website ready for GitHub Pages.
+
+Static portfolio ready for GitHub Pages.
 
 ## Publish
-1. Upload all files and the `assets` folder to the repository root.
-2. Open **Settings → Pages**.
-3. Select **Deploy from a branch**.
-4. Choose **main** and **/(root)**, then Save.
-
-The website depends on these asset files:
-- `assets/profile.jpg`
-- `assets/Mohamed_Sherif_CV.pdf`
+1. Upload `index.html` and the `assets` folder to the repository root.
+2. Open Settings > Pages.
+3. Select Deploy from a branch, `main`, `/ (root)`.
+4. Save.
