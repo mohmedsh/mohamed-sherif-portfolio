@@ -1,0 +1,11 @@
+FINAL DEPLOYMENT
+
+1) Extract the ZIP.
+2) Upload ALL files inside the extracted folder to the ROOT of:
+   mohmedsh/mohamed-sherif-portfolio
+3) Replace existing files and commit.
+4) Open:
+   https://mohmedsh.github.io/mohamed-sherif-portfolio/admin.html?v=final
+
+Username: mohamed.sherif
+Password: your Supabase password (never stored in the project).

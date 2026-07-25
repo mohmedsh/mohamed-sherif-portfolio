@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#07111f" />
-  <title>Admin Dashboard | Mohamed Sherif</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="admin.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07111f">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Portfolio Control | Mohamed Sherif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-final.css?v=20260725-final">
+  <link rel="stylesheet" href="admin-final.css?v=20260725-final">
 </head>
 <body class="admin-body">
   <section id="loginView" class="login-view">
     <div class="login-card glass">
-      <a class="brand login-brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Portfolio Control</strong><small>Secure content management</small></span></a>
-      <div><p class="eyebrow">Owner access</p><h1>Welcome back.</h1><p>Sign in to manage your CV, projects, notes and website settings.</p></div>
+      <a class="brand login-brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Portfolio Control</strong><small>Supabase secure administration</small></span></a>
+      <div><p class="eyebrow">Owner access</p><h1>Welcome back.</h1><p>Sign in to manage your CV, projects, notes, files and public website settings.</p></div>
       <form id="loginForm" class="stack-form">
-        <label>Username<input id="loginUsername" type="text" required autocomplete="username" placeholder="mohamed.sherif" /></label>
-        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" placeholder="••••••••" /></label>
-        <button class="btn primary full" type="submit">Sign in</button>
+        <label>Username<input id="loginUsername" type="text" value="mohamed.sherif" required autocomplete="username"></label>
+        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Your Supabase password"></label>
+        <button id="loginButton" class="btn primary full" type="submit">Sign in</button>
       </form>
-      <div class="security-note"><strong>No password is stored in this website.</strong><span>Authentication is verified by Supabase and protected by database access policies.</span></div>
+      <div class="security-note"><strong>Secure mode is active.</strong><span>No password is stored in GitHub or in the website source. Supabase Auth verifies the login and RLS protects the data.</span></div>
       <p id="loginMessage" class="form-message"></p>
       <a class="back-link" href="index.html">← Back to portfolio</a>
     </div>
@@ -29,7 +31,7 @@
 
   <div id="dashboardView" class="dashboard-view hidden">
     <aside class="admin-sidebar">
-      <a class="brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Control Center</strong><small id="modeBadge">Secure administration</small></span></a>
+      <a class="brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Control Center</strong><small id="modeBadge">Supabase • secure</small></span></a>
       <nav class="admin-nav">
         <button class="active" data-view="overview"><span>⌂</span> Overview</button>
         <button data-view="cv"><span>CV</span> CV Builder</button>
@@ -37,145 +39,65 @@
         <button data-view="notes"><span>▤</span> Technical Notes</button>
         <button data-view="settings"><span>⚙</span> Website Settings</button>
       </nav>
-      <div class="sidebar-bottom"><a href="index.html" target="_blank">Open website ↗</a><button id="logoutBtn" type="button">Sign out</button></div>
+      <div class="sidebar-bottom"><a href="index.html" target="_blank" rel="noopener">Open website ↗</a><button id="logoutBtn" type="button">Sign out</button></div>
     </aside>
 
     <main class="admin-main">
       <header class="admin-header"><div><p class="eyebrow">Portfolio CMS</p><h1 id="viewTitle">Overview</h1></div><div class="admin-user"><span class="avatar">MS</span><div><strong>Mohamed Sherif</strong><small id="adminEmail">Owner</small></div></div></header>
 
       <section id="overviewView" class="admin-section">
-        <div class="stats-grid">
-          <article><small>Total projects</small><strong id="statProjects">0</strong><span>All visibility levels</span></article>
-          <article><small>Published projects</small><strong id="statPublished">0</strong><span>Visible to visitors</span></article>
-          <article><small>Technical notes</small><strong id="statNotes">0</strong><span>Knowledge library</span></article>
-          <article><small>CV last updated</small><strong id="statCvUpdated">—</strong><span>Downloaded PDF always uses this version</span></article>
-        </div>
-        <div class="admin-panel"><div class="panel-heading"><div><h2>Recent content</h2><p>Latest projects and technical notes.</p></div></div><div id="recentList" class="content-list"></div></div>
+        <div class="stats-grid"><article><small>Total projects</small><strong id="statProjects">0</strong><span>All visibility levels</span></article><article><small>Published projects</small><strong id="statPublished">0</strong><span>Visible to visitors</span></article><article><small>Technical notes</small><strong id="statNotes">0</strong><span>Knowledge library</span></article><article><small>CV last updated</small><strong id="statCvUpdated">—</strong><span>Latest saved cloud version</span></article></div>
+        <div class="admin-panel"><div class="panel-heading"><div><h2>Recent content</h2><p>Latest projects and technical notes.</p></div><button id="seedBtn" class="btn secondary small" type="button">Restore starter content</button></div><div id="recentList" class="content-list"></div><p id="overviewMessage" class="form-message"></p></div>
       </section>
 
       <section id="cvView" class="admin-section hidden">
-        <div class="cv-toolbar admin-panel">
-          <div><p class="eyebrow">Dynamic CV</p><h2>CV Builder</h2><p>Edit every section, save once, then preview or download the newest PDF immediately.</p></div>
-          <div class="cv-toolbar-actions">
-            <a id="previewCvBtn" class="btn secondary" href="cv.html" target="_blank" rel="noopener">Preview CV ↗</a>
-            <a id="downloadLatestCvBtn" class="btn primary" href="cv.html?download=1" target="_blank" rel="noopener">Download latest PDF</a>
-          </div>
-        </div>
-
+        <div class="cv-toolbar admin-panel"><div><p class="eyebrow">Dynamic CV</p><h2>CV Builder</h2><p>Edit every section, save once, then preview or download the newest PDF.</p></div><div class="cv-toolbar-actions"><button id="previewCvBtn" class="btn secondary" type="button">Preview CV ↗</button><button id="downloadLatestCvBtn" class="btn primary" type="button">Download latest PDF</button></div></div>
         <form id="cvForm" class="cv-builder-form">
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Personal information</h2><p>The CV header and contact details.</p></div></div>
-            <div class="editor-grid">
-              <label>Full name<input name="full_name" type="text" required /></label>
-              <label>Professional title<input name="title" type="text" required /></label>
-              <label>Email<input name="email" type="email" /></label>
-              <label>Phone<input name="phone" type="text" /></label>
-              <label>Location<input name="location" type="text" /></label>
-              <label>LinkedIn URL<input name="linkedin" type="url" /></label>
-              <label>GitHub URL<input name="github" type="url" /></label>
-              <label>Personal website<input name="website" type="url" /></label>
-              <label class="span-2">Professional summary<textarea name="summary" rows="5"></textarea></label>
-            </div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Experience</h2><p>Add, edit or remove any position. Write one achievement per line.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="experience" /> Show</label><button class="btn secondary small" data-add="experience" type="button">+ Add position</button></div></div>
-            <div id="experienceEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Technical skills</h2><p>Create skill groups and control every keyword.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="skills" /> Show</label><button class="btn secondary small" data-add="skill_groups" type="button">+ Add group</button></div></div>
-            <div id="skillGroupsEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Selected projects</h2><p>These are CV-specific project entries, independent from the website project cards.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="projects" /> Show</label><button class="btn secondary small" data-add="projects" type="button">+ Add project</button></div></div>
-            <div id="cvProjectsEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Education</h2><p>Degree, institution, period and academic details.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="education" /> Show</label><button class="btn secondary small" data-add="education" type="button">+ Add education</button></div></div>
-            <div id="educationEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Certifications & training</h2><p>Add courses, certifications and professional training.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="certifications" /> Show</label><button class="btn secondary small" data-add="certifications" type="button">+ Add certificate</button></div></div>
-            <div id="certificationsEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Languages</h2><p>Language and proficiency level.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="languages" /> Show</label><button class="btn secondary small" data-add="languages" type="button">+ Add language</button></div></div>
-            <div id="languagesEditor" class="cv-item-list"></div>
-          </section>
-
-          <section class="admin-panel cv-block">
-            <div class="panel-heading"><div><h2>Custom sections</h2><p>Add anything else: awards, volunteering, references, availability or another section.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="custom" /> Show</label><button class="btn secondary small" data-add="custom_sections" type="button">+ Add custom section</button></div></div>
-            <div id="customSectionsEditor" class="cv-item-list"></div>
-          </section>
-
-          <div class="sticky-save-bar">
-            <div><strong id="cvSaveState">No unsaved changes</strong><small id="cvUpdatedText">The PDF is generated from the latest saved version.</small></div>
-            <button class="btn primary" type="submit">Save latest CV</button>
-          </div>
-          <p id="cvMessage" class="form-message"></p>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Personal information</h2><p>The CV header and contact details.</p></div></div><div id="profileEditor" class="editor-grid"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Experience</h2><p>One achievement per line.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="experience"> Show</label><button class="btn secondary small" data-add-cv="experience" type="button">+ Add position</button></div></div><div id="experienceEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Technical skills</h2><p>Create groups and comma-separated skills.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="skills"> Show</label><button class="btn secondary small" data-add-cv="skill_groups" type="button">+ Add group</button></div></div><div id="skillGroupsEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Selected projects</h2><p>CV-specific project entries.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="projects"> Show</label><button class="btn secondary small" data-add-cv="projects" type="button">+ Add project</button></div></div><div id="cvProjectsEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Education</h2><p>Degree and academic details.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="education"> Show</label><button class="btn secondary small" data-add-cv="education" type="button">+ Add education</button></div></div><div id="educationEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Certifications & training</h2><p>Courses, certifications and professional training.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="certifications"> Show</label><button class="btn secondary small" data-add-cv="certifications" type="button">+ Add certificate</button></div></div><div id="certificationsEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Languages</h2><p>Language and proficiency.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="languages"> Show</label><button class="btn secondary small" data-add-cv="languages" type="button">+ Add language</button></div></div><div id="languagesEditor" class="cv-item-list"></div></section>
+          <section class="admin-panel cv-block"><div class="panel-heading"><div><h2>Custom sections</h2><p>Awards, volunteering, availability, or anything else.</p></div><div class="section-actions"><label class="visibility-switch"><input type="checkbox" data-section-visible="custom"> Show</label><button class="btn secondary small" data-add-cv="custom_sections" type="button">+ Add section</button></div></div><div id="customSectionsEditor" class="cv-item-list"></div></section>
+          <div class="sticky-save-bar"><div><strong id="cvSaveState">No unsaved changes</strong><small id="cvUpdatedText">The PDF uses the latest saved cloud version.</small></div><button class="btn primary" type="submit">Save latest CV</button></div><p id="cvMessage" class="form-message"></p>
         </form>
       </section>
 
-      <section id="projectsView" class="admin-section hidden">
-        <div class="admin-panel">
-          <div class="panel-heading"><div><h2>Projects</h2><p>Create case studies and control their visibility.</p></div><button id="addProjectBtn" class="btn primary" type="button">+ Add project</button></div>
-          <div id="adminProjectsList" class="content-list"></div>
-        </div>
-      </section>
-
-      <section id="notesView" class="admin-section hidden">
-        <div class="admin-panel">
-          <div class="panel-heading"><div><h2>Technical Notes</h2><p>Publish summaries, study guides and downloadable material.</p></div><button id="addNoteBtn" class="btn primary" type="button">+ Add note</button></div>
-          <div id="adminNotesList" class="content-list"></div>
-        </div>
-      </section>
-
-      <section id="settingsView" class="admin-section hidden">
-        <div class="admin-panel narrow-panel">
-          <div class="panel-heading"><div><h2>Website Settings</h2><p>Update contact links and public website details.</p></div></div>
-          <form id="settingsForm" class="settings-form">
-            <label>Professional headline<input name="headline" type="text" required /></label>
-            <label>Public email<input name="email" type="email" /></label>
-            <label>LinkedIn URL<input name="linkedin_url" type="url" /></label>
-            <label>Location<input name="location" type="text" /></label>
-            <button class="btn primary" type="submit">Save settings</button>
-            <p id="settingsMessage" class="form-message"></p>
-          </form>
-        </div>
-      </section>
+      <section id="projectsView" class="admin-section hidden"><div class="admin-panel"><div class="panel-heading"><div><h2>Projects</h2><p>Create case studies, upload assets and control visibility.</p></div><button id="addProjectBtn" class="btn primary" type="button">+ Add project</button></div><div id="adminProjectsList" class="content-list"></div></div></section>
+      <section id="notesView" class="admin-section hidden"><div class="admin-panel"><div class="panel-heading"><div><h2>Technical Notes</h2><p>Publish summaries, study guides and downloadable material.</p></div><button id="addNoteBtn" class="btn primary" type="button">+ Add note</button></div><div id="adminNotesList" class="content-list"></div></div></section>
+      <section id="settingsView" class="admin-section hidden"><div class="admin-panel narrow-panel"><div class="panel-heading"><div><h2>Website Settings</h2><p>Update contact links and public website details.</p></div></div><form id="settingsForm" class="settings-form"><label>Professional headline<input name="headline" type="text" required></label><label>Public email<input name="email" type="email"></label><label>LinkedIn URL<input name="linkedin_url" type="url"></label><label>CV URL<input name="cv_url" type="text" placeholder="cv.html"></label><label>Location<input name="location" type="text"></label><button class="btn primary" type="submit">Save settings</button><p id="settingsMessage" class="form-message"></p></form></div></section>
     </main>
   </div>
 
   <dialog id="editorDialog" class="editor-dialog">
-    <form id="editorForm" method="dialog">
+    <form id="editorForm">
       <div class="editor-head"><div><p class="eyebrow" id="editorEyebrow">Content editor</p><h2 id="editorTitle">Add item</h2></div><button id="editorClose" class="dialog-close" type="button">×</button></div>
-      <input name="id" type="hidden" />
-      <input name="content_type" type="hidden" />
+      <input name="id" type="hidden"><input name="content_type" type="hidden">
       <div class="editor-grid">
-        <label class="span-2">Title<input name="title" type="text" required /></label>
+        <label class="span-2">Title<input name="title" type="text" required></label>
         <label>Category<select name="category"><option value="network">Network</option><option value="security">Security</option><option value="software">Software</option><option value="systems">Systems</option><option value="wireless">Wireless</option></select></label>
         <label>Visibility<select name="visibility"><option value="public">Public</option><option value="private">Private</option><option value="unlisted">Unlisted</option></select></label>
         <label>Status<select name="status"><option value="published">Published</option><option value="draft">Draft</option><option value="archived">Archived</option></select></label>
         <label>Featured<select name="featured"><option value="false">No</option><option value="true">Yes</option></select></label>
+        <label>Sort order<input name="sort_order" type="number" value="100"></label>
         <label class="span-2">Short description<textarea name="summary" rows="3" required></textarea></label>
         <label class="span-2">Full content<textarea name="content" rows="7" placeholder="Problem, solution, architecture, results..."></textarea></label>
-        <label class="span-2">Technologies / tags<input name="tags" type="text" placeholder="Cisco, FortiGate, Python, Flask" /></label>
-        <label>Cover image URL<input name="cover_url" type="url" placeholder="https://..." /></label>
-        <label>Document / live URL<input name="document_url" type="url" placeholder="https://..." /></label>
+        <label class="span-2">Technologies / tags<input name="tags" type="text" placeholder="Cisco, FortiGate, Python, Flask"></label>
+        <label>Cover image URL<input name="cover_url" type="text" placeholder="https://..."></label>
+        <label>Upload cover image<input name="cover_file" type="file" accept="image/*"></label>
+        <label>Document / live URL<input name="document_url" type="text" placeholder="https://..."></label>
+        <label>Upload PDF / file<input name="document_file" type="file" accept=".pdf,.zip,.doc,.docx,.ppt,.pptx,.xlsx,.png,.jpg,.jpeg,.webp"></label>
       </div>
-      <div class="editor-actions"><button id="deleteItemBtn" class="btn danger hidden" type="button">Delete</button><div class="spacer"></div><button id="cancelEditorBtn" class="btn secondary" type="button">Cancel</button><button class="btn primary" type="submit">Save content</button></div>
-      <p id="editorMessage" class="form-message"></p>
+      <div class="upload-help">Private items are uploaded to a private bucket. Public and unlisted items use the public bucket. Maximum file size: 25 MB.</div>
+      <div class="editor-actions"><button id="deleteItemBtn" class="btn danger hidden" type="button">Delete</button><div class="spacer"></div><button id="cancelEditorBtn" class="btn secondary" type="button">Cancel</button><button class="btn primary" type="submit">Save content</button></div><p id="editorMessage" class="form-message"></p>
     </form>
   </dialog>
 
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-  <script src="data-service.js"></script>
-  <script src="admin.js"></script>
+  <script src="config-final.js?v=20260725-final"></script>
+  <script src="data-final.js?v=20260725-final"></script>
+  <script src="admin-final.js?v=20260725-final"></script>
 </body>
 </html>

@@ -1,42 +1,52 @@
-# Mohamed Sherif Portfolio Hub — النسخة الآمنة
+# Mohamed Sherif Portfolio Hub — النسخة النهائية
 
-## تم حذف المشكلة بالكامل
+هذه النسخة تستبدل كل النسخ التجريبية السابقة، وتستخدم أسماء ملفات جديدة لمنع كاش GitHub Pages القديم.
 
-هذه النسخة لا تحتوي على كلمة مرور مكتوبة داخل HTML أو JavaScript، ولا يوجد بها دخول تجريبي أو تخزين صلاحية الإدارة داخل المتصفح.
+## ما يعمل في النسخة
 
-### الحماية الحالية
+- Portfolio احترافي ومتجاوب.
+- تسجيل دخول حقيقي عن طريق Supabase Auth.
+- لا توجد كلمة مرور داخل GitHub أو JavaScript.
+- CV Builder لتعديل كل بيانات الـCV.
+- Preview وPDF من آخر تعديل محفوظ في السحابة.
+- إضافة وتعديل وحذف المشاريع والملخصات.
+- Public / Private / Unlisted وDraft / Published / Archived.
+- رفع صورة الغلاف وPDF وZIP والملفات حتى 25 MB.
+- الملفات الخاصة داخل Private Storage Bucket.
+- تعديل بيانات الموقع والبريد وLinkedIn والموقع الجغرافي.
+- البيانات الافتراضية تُضاف تلقائيًا عند أول دخول إذا كانت الجداول فارغة.
 
-- كلمة المرور تُحفظ ويُتحقق منها داخل Supabase Authentication فقط.
-- لا توجد كلمة مرور داخل GitHub أو `config.js` أو Local Storage أو Session Storage.
-- الزائر يشاهد المحتوى `Public + Published` فقط.
-- المحتوى Private وDraft وUnlisted لا يقرأه إلا حساب الـOwner.
-- صلاحيات قاعدة البيانات والملفات محمية بـRow Level Security الموجودة في `supabase-schema.sql`.
+## الرفع النهائي على GitHub
 
-## الملفات المهمة
+1. فك ضغط ملف ZIP.
+2. افتح Repository: `mohmedsh/mohamed-sherif-portfolio`.
+3. ارفع **كل الملفات الموجودة داخل المجلد** إلى جذر Repository واختر Replace للملفات الموجودة.
+4. Commit message: `Deploy final secure portfolio build`.
+5. Settings → Pages يجب أن تكون:
+   - Source: Deploy from a branch
+   - Branch: main
+   - Folder: /(root)
+6. انتظر دقيقة وافتح الموقع مع `?v=final` أول مرة.
 
-- `index.html`: الموقع العام.
-- `admin.html`: لوحة التحكم الآمنة.
-- `cv.html`: أحدث CV.
-- `config.js`: رابط مشروع Supabase والـAnon Key وإيميل الـOwner فقط، بدون كلمة مرور.
-- `supabase-schema.sql`: الجداول وسياسات الحماية.
+## الروابط
 
-## تشغيل لوحة التحكم الحقيقية مرة واحدة
+- الموقع: `https://mohmedsh.github.io/mohamed-sherif-portfolio/?v=final`
+- لوحة التحكم: `https://mohmedsh.github.io/mohamed-sherif-portfolio/admin.html?v=final`
+- أحدث CV: `https://mohmedsh.github.io/mohamed-sherif-portfolio/cv.html?v=final`
 
-1. أنشئ مشروعًا في Supabase.
-2. افتح SQL Editor وشغّل ملف `supabase-schema.sql` كاملًا.
-3. من Authentication → Users أنشئ حساب الـOwner بكلمة مرور قوية.
-4. نفّذ أمر تعيين الـOwner الموجود كتعليق في نهاية ملف SQL بعد استبدال الإيميل.
-5. افتح `config.js` وضع:
+## تسجيل الدخول
 
-```js
-SUPABASE_URL: "https://YOUR_PROJECT.supabase.co",
-SUPABASE_ANON_KEY: "YOUR_ANON_KEY",
-AUTH_USERNAME: "mohamed.sherif",
-AUTH_EMAIL: "OWNER_EMAIL"
-```
+- Username: `mohamed.sherif`
+- Password: كلمة المرور التي أنشأتها داخل Supabase Authentication.
 
-لا تضع كلمة المرور في أي ملف. تدخل بها فقط من شاشة `admin.html`، ويقوم Supabase بالتحقق منها.
+لا تضع أو ترسل كلمة المرور داخل أي ملف.
 
-## قبل ربط Supabase
+## Supabase
 
-الموقع العام سيظل يعرض المحتوى الأساسي الجاهز، لكن لوحة الإدارة ستكون مقفولة برسالة واضحة بدل قبول أي كلمة مرور مكشوفة.
+أنت شغلت SQL بنجاح بالفعل. لا تحتاج لتشغيله مرة أخرى إلا إذا حذفت الجداول أو أنشأت مشروع Supabase جديدًا. الملف `supabase-setup.sql` موجود للنسخ الاحتياطي والإعداد من الصفر.
+
+## الأمان
+
+- Publishable key الموجود في `config-final.js` مفتاح عام مصمم للمتصفح.
+- الحماية الفعلية تعتمد على RLS.
+- ممنوع وضع `service_role` أو `sb_secret_...` أو Database Password داخل GitHub.

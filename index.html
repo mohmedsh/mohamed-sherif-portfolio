@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mohamed Sherif — Network Infrastructure & Security Engineer portfolio, projects and technical knowledge hub." />
-  <meta name="theme-color" content="#07111f" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohamed Sherif — Network Infrastructure & Security Engineer portfolio, projects and technical knowledge hub.">
+  <meta name="theme-color" content="#07111f">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Mohamed Sherif | Network Infrastructure & Security Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-final.css?v=20260725-final">
 </head>
 <body>
-  <div class="noise"></div>
+  <div class="noise" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="Mohamed Sherif Home">
+    <a class="brand" href="#home" aria-label="Mohamed Sherif home">
       <span class="brand-mark">MS</span>
       <span class="brand-copy"><strong>Mohamed Sherif</strong><small>Infrastructure • Security • Automation</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#knowledge">Knowledge</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#knowledge">Knowledge</a><a href="#contact">Contact</a>
     </nav>
     <div class="top-actions">
       <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme">◐</button>
@@ -35,17 +32,14 @@
     <section id="home" class="hero section-shell">
       <div class="hero-copy reveal">
         <p class="eyebrow"><span class="status-dot"></span> Open to Network & Security opportunities</p>
-        <h1>Building secure, resilient<br /><span>enterprise infrastructure.</span></h1>
-        <p class="hero-lead">Network Infrastructure & Security Engineer with hands-on experience across Cisco enterprise networks, FortiGate security, wireless, monitoring and automation.</p>
+        <h1>Building secure, resilient<br><span>enterprise infrastructure.</span></h1>
+        <p id="heroHeadline" class="hero-lead">Network Infrastructure & Security Engineer with hands-on experience across Cisco enterprise networks, FortiGate security, wireless, monitoring and automation.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#projects">Explore projects</a>
           <a id="downloadCv" class="btn secondary" href="cv.html" target="_blank" rel="noopener">View / Download CV</a>
         </div>
-        <div class="hero-tags">
-          <span>Cisco Catalyst</span><span>FortiGate</span><span>WLC 9800</span><span>Zabbix</span><span>Python / Flask</span>
-        </div>
+        <div class="hero-tags"><span>Cisco Catalyst</span><span>FortiGate</span><span>WLC 9800</span><span>Zabbix</span><span>Python / Flask</span></div>
       </div>
-
       <div class="hero-visual reveal delay-1" aria-label="Network operations summary">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
         <div class="network-card glass">
@@ -53,38 +47,22 @@
           <div class="network-core">
             <div class="node core-node">CORE<span>C9500</span></div>
             <div class="link-line one"></div><div class="link-line two"></div><div class="link-line three"></div>
-            <div class="node mini-node n1">FW<span>HA</span></div>
-            <div class="node mini-node n2">WLC<span>9800</span></div>
-            <div class="node mini-node n3">NMS<span>Zabbix</span></div>
+            <div class="node mini-node n1">FW<span>HA</span></div><div class="node mini-node n2">WLC<span>9800</span></div><div class="node mini-node n3">NMS<span>Zabbix</span></div>
           </div>
-          <div class="telemetry">
-            <div><small>Availability</small><strong>99.9%</strong></div>
-            <div><small>Sites</small><strong>03</strong></div>
-            <div><small>VLANs</small><strong>70+</strong></div>
-          </div>
+          <div class="telemetry"><div><small>Availability</small><strong>99.9%</strong></div><div><small>Sites</small><strong>03</strong></div><div><small>VLANs</small><strong>70+</strong></div></div>
         </div>
       </div>
     </section>
 
     <section class="metrics section-shell reveal" aria-label="Professional metrics">
-      <article><strong>750+</strong><span>Users supported</span></article>
-      <article><strong>50+</strong><span>Network switches</span></article>
-      <article><strong>60+</strong><span>Wireless APs</span></article>
-      <article><strong>30+</strong><span>Servers monitored</span></article>
+      <article><strong>750+</strong><span>Users supported</span></article><article><strong>50+</strong><span>Network switches</span></article><article><strong>60+</strong><span>Wireless APs</span></article><article><strong>30+</strong><span>Servers monitored</span></article>
     </section>
 
     <section id="about" class="content-section section-shell">
       <div class="section-heading reveal"><p class="eyebrow">01 / Profile</p><h2>Engineering with operational impact.</h2></div>
       <div class="about-grid">
-        <div class="about-copy reveal">
-          <p>I work across enterprise networking, security operations and infrastructure automation. My focus is not only configuring devices, but creating reliable systems, documentation and dashboards that improve daily operations.</p>
-          <p>Current exposure includes Cisco Catalyst switching, FortiGate HA and SD-WAN, Cisco WLC 9800, Windows Server, VMware ESXi, Zabbix and custom Python/Flask tools.</p>
-        </div>
-        <div class="skill-panels reveal delay-1">
-          <div class="skill-card"><span>01</span><div><strong>Network Engineering</strong><small>Routing, switching, VLANs, redundancy, WLAN</small></div></div>
-          <div class="skill-card"><span>02</span><div><strong>Security Operations</strong><small>Firewalls, VPN, NAT, IPS, web filtering, SIEM</small></div></div>
-          <div class="skill-card"><span>03</span><div><strong>Automation & Monitoring</strong><small>Zabbix, Python, Flask, reporting, audit workflows</small></div></div>
-        </div>
+        <div class="about-copy reveal"><p>I work across enterprise networking, security operations and infrastructure automation. My focus is not only configuring devices, but creating reliable systems, documentation and dashboards that improve daily operations.</p><p>Current exposure includes Cisco Catalyst switching, FortiGate HA and SD-WAN, Cisco WLC 9800, Windows Server, VMware ESXi, Zabbix and custom Python/Flask tools.</p></div>
+        <div class="skill-panels reveal delay-1"><div class="skill-card"><span>01</span><div><strong>Network Engineering</strong><small>Routing, switching, VLANs, redundancy, WLAN</small></div></div><div class="skill-card"><span>02</span><div><strong>Security Operations</strong><small>Firewalls, VPN, NAT, IPS, web filtering, SIEM</small></div></div><div class="skill-card"><span>03</span><div><strong>Automation & Monitoring</strong><small>Zabbix, Python, Flask, reporting, audit workflows</small></div></div></div>
       </div>
     </section>
 
@@ -98,42 +76,25 @@
     </section>
 
     <section id="projects" class="content-section section-shell">
-      <div class="section-heading split reveal">
-        <div><p class="eyebrow">03 / Projects</p><h2>Selected systems and implementations.</h2></div>
-        <div class="filters" id="projectFilters"><button class="active" data-filter="all">All</button><button data-filter="network">Network</button><button data-filter="security">Security</button><button data-filter="software">Software</button></div>
-      </div>
-      <div id="projectsGrid" class="project-grid" aria-live="polite"></div>
-      <div id="projectsEmpty" class="empty-state hidden">No public projects are published yet.</div>
+      <div class="section-heading split reveal"><div><p class="eyebrow">03 / Projects</p><h2>Selected systems and implementations.</h2></div><div class="filters" id="projectFilters"><button class="active" data-filter="all">All</button><button data-filter="network">Network</button><button data-filter="security">Security</button><button data-filter="software">Software</button><button data-filter="systems">Systems</button></div></div>
+      <div id="projectsGrid" class="project-grid" aria-live="polite"></div><div id="projectsEmpty" class="empty-state hidden">No public projects are published yet.</div>
     </section>
 
     <section id="knowledge" class="content-section section-shell">
-      <div class="section-heading split reveal">
-        <div><p class="eyebrow">04 / Knowledge Hub</p><h2>Technical notes built for real understanding.</h2></div>
-        <label class="search-box"><span>⌕</span><input id="noteSearch" type="search" placeholder="Search OSPF, WLAN, FortiGate..." /></label>
-      </div>
-      <div id="notesGrid" class="notes-grid"></div>
-      <div id="notesEmpty" class="empty-state hidden">No matching public notes.</div>
+      <div class="section-heading split reveal"><div><p class="eyebrow">04 / Knowledge Hub</p><h2>Technical notes built for real understanding.</h2></div><label class="search-box"><span>⌕</span><input id="noteSearch" type="search" placeholder="Search OSPF, WLAN, FortiGate..."></label></div>
+      <div id="notesGrid" class="notes-grid"></div><div id="notesEmpty" class="empty-state hidden">No matching public notes.</div>
     </section>
 
-    <section id="contact" class="contact-section section-shell reveal">
-      <div><p class="eyebrow">05 / Contact</p><h2>Let’s build reliable infrastructure.</h2><p>Available for network infrastructure, security engineering and automation opportunities in Egypt.</p></div>
-      <div class="contact-actions">
-        <a id="emailLink" class="btn primary" href="mailto:example@example.com">Send email</a>
-        <a id="linkedinLink" class="btn secondary" href="#" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </section>
+    <section id="contact" class="contact-section section-shell reveal"><div><p class="eyebrow">05 / Contact</p><h2>Let’s build reliable infrastructure.</h2><p id="contactLocation">Available for network infrastructure, security engineering and automation opportunities in Egypt.</p></div><div class="contact-actions"><a id="emailLink" class="btn primary" href="mailto:mohmedsherif599@gmail.com">Send email</a><a id="linkedinLink" class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></div></section>
   </main>
 
-  <footer class="footer section-shell"><div><strong>Mohamed Sherif</strong><span>Network Infrastructure & Security Engineer</span></div><p>© <span id="year"></span> Mohamed Sherif. Built as a secure portfolio and knowledge hub.</p></footer>
+  <footer class="footer section-shell"><div><strong>Mohamed Sherif</strong><span>Network Infrastructure & Security Engineer</span></div><p>© <span id="year"></span> Mohamed Sherif. Secure portfolio and knowledge hub.</p></footer>
 
-  <dialog id="detailsDialog" class="details-dialog">
-    <button class="dialog-close" type="button" aria-label="Close">×</button>
-    <div id="dialogContent"></div>
-  </dialog>
+  <dialog id="detailsDialog" class="details-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="dialogContent"></div></dialog>
 
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-  <script src="data-service.js"></script>
-  <script src="app.js"></script>
+  <script src="config-final.js?v=20260725-final"></script>
+  <script src="data-final.js?v=20260725-final"></script>
+  <script src="app-final.js?v=20260725-final"></script>
 </body>
 </html>
