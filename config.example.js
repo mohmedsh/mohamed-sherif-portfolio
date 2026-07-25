@@ -1,0 +1,8 @@
+window.PORTFOLIO_CONFIG = {
+  SUPABASE_URL: "https://YOUR_PROJECT.supabase.co",
+  SUPABASE_ANON_KEY: "YOUR_PUBLIC_ANON_KEY",
+  AUTH_USERNAME: "mohamed.sherif",
+  AUTH_EMAIL: "YOUR_SUPABASE_OWNER_EMAIL",
+  DEMO_USERNAME: "mohamed.sherif",
+  DEMO_PASSWORD: "123"
+};

@@ -1,0 +1,283 @@
+(() => {
+  const cfg = window.PORTFOLIO_CONFIG || {};
+  const configured = cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && !cfg.SUPABASE_URL.includes('YOUR_') && !cfg.SUPABASE_ANON_KEY.includes('YOUR_');
+  const client = configured && window.supabase ? window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
+
+  const now = () => new Date().toISOString();
+  const uid = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+
+  const defaults = {
+    projects: [
+      {
+        id: 'demo-project-1', title: 'Fleet Request Management System', category: 'software', visibility: 'public', status: 'published', featured: true,
+        summary: 'Enterprise vehicle-request workflow covering approvals, availability, conflict prevention, procurement and operational reporting.',
+        content: 'A complete workflow platform designed for requesters, fleet operations and procurement. The system validates booking windows, prevents vehicle and driver conflicts, handles internal assignment or rental, and provides dashboards, reports and email notifications.\n\nKey impact:\n• Reduced manual coordination and repeated calls.\n• Added traceable approval and assignment history.\n• Improved vehicle and driver availability visibility.\n• Centralized request, extension and completion workflows.',
+        tags: ['Python', 'Flask', 'SQLite', 'Workflow', 'Fleet'], cover_url: '', document_url: '', sort_order: 1, created_at: '2026-07-18T10:00:00Z', updated_at: '2026-07-24T10:00:00Z'
+      },
+      {
+        id: 'demo-project-2', title: 'Zabbix Availability & Performance Engine', category: 'network', visibility: 'public', status: 'published', featured: true,
+        summary: 'Automated weekly and monthly availability reporting with issue merging, filtering, rankings and management-ready output.',
+        content: 'A Python/Flask reporting engine connected to Zabbix data. It classifies downtime and performance events, merges short incident windows, calculates availability and produces practical management summaries.\n\nCapabilities include date filters, host categories, Top 10 reports, automated email scheduling and branded output.',
+        tags: ['Zabbix', 'Python', 'Flask', 'Monitoring', 'Reporting'], cover_url: '', document_url: '', sort_order: 2, created_at: '2026-06-12T10:00:00Z', updated_at: '2026-07-20T10:00:00Z'
+      },
+      {
+        id: 'demo-project-3', title: 'Enterprise Network & Security Operations', category: 'security', visibility: 'public', status: 'published', featured: true,
+        summary: 'Operational support for a multi-site Cisco and Fortinet environment serving production facilities and enterprise users.',
+        content: 'Hands-on operations across Cisco C9500 core, C9300 distribution, C9200L access, FortiGate 201G HA, Cisco WLC 9800 HA and enterprise monitoring.\n\nScope includes VLANs, LACP, spanning tree, ACLs, DHCP relay, SD-WAN, NAT, VPN, captive portal, FSSO, wireless services and documentation.',
+        tags: ['Cisco', 'FortiGate', 'WLC 9800', 'SD-WAN', 'HA'], cover_url: '', document_url: '', sort_order: 3, created_at: '2025-11-20T10:00:00Z', updated_at: '2026-07-22T10:00:00Z'
+      },
+      {
+        id: 'demo-project-4', title: 'Soft4U Market ERP', category: 'software', visibility: 'public', status: 'published', featured: false,
+        summary: 'Retail ERP covering POS, inventory, purchasing, batches, returns, accounting, RBAC and audit workflows.',
+        content: 'A modular retail ERP designed for practical store operations. It includes barcode-based sales, batch and expiry management, supplier purchasing, inventory movements, accounting reports, access control and audit logs.',
+        tags: ['ERP', 'POS', 'Inventory', 'Accounting', 'RBAC'], cover_url: '', document_url: '', sort_order: 4, created_at: '2026-05-10T10:00:00Z', updated_at: '2026-07-19T10:00:00Z'
+      },
+      {
+        id: 'demo-project-private', title: 'Internal Network Documentation', category: 'network', visibility: 'private', status: 'published', featured: false,
+        summary: 'Private diagrams, addressing plans and operational documentation.',
+        content: 'Owner-only content. This item demonstrates the private visibility option and will never be returned to the public website in production.',
+        tags: ['Private', 'Documentation'], cover_url: '', document_url: '', sort_order: 10, created_at: now(), updated_at: now()
+      }
+    ],
+    notes: [
+      { id:'demo-note-1', title:'OSPF Operation: Start, Convergence & Change', category:'network', visibility:'public', status:'published', featured:true, summary:'A structured explanation of OSPF neighbor formation, LSDB synchronization, SPF calculation and reconvergence.', content:'Covers router IDs, hello packets, neighbor states, DR/BDR behavior, LSA flooding, SPF calculation and the sequence triggered when a link or network changes.', tags:['OSPF','LSA','SPF'], cover_url:'', document_url:'', sort_order:1, created_at:'2026-07-20T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
+      { id:'demo-note-2', title:'RCNA-WLAN Fundamentals with Cisco Comparison', category:'wireless', visibility:'public', status:'published', featured:true, summary:'Wireless fundamentals explained alongside equivalent Cisco architecture and terminology.', content:'Covers RF basics, channels, roaming, WLAN architecture, access points, controllers, security and a vendor-by-vendor terminology comparison.', tags:['WLAN','RCNA','Cisco'], cover_url:'', document_url:'', sort_order:2, created_at:'2026-07-23T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
+      { id:'demo-note-3', title:'FortiGate HA, SD-WAN & Security Operations', category:'security', visibility:'public', status:'published', featured:false, summary:'Operational notes for HA, SD-WAN rules, VPN, FSSO, NAT and security profiles.', content:'A field-oriented reference covering high availability, session synchronization, SD-WAN steering, NAT/VIP, VPN troubleshooting, FSSO, captive portal and security inspection.', tags:['FortiGate','HA','SD-WAN'], cover_url:'', document_url:'', sort_order:3, created_at:'2026-07-10T10:00:00Z',updated_at:'2026-07-22T10:00:00Z' },
+      { id:'demo-note-4', title:'Route Redistribution & Filtering', category:'network', visibility:'public', status:'published', featured:false, summary:'Redistribution design, route tags, metrics and filtering strategies explained with practical logic.', content:'Explains why redistribution is required, how routing information crosses protocol boundaries, and how filtering and route tagging prevent feedback and unwanted advertisements.', tags:['Redistribution','Filtering','Routing'], cover_url:'', document_url:'', sort_order:4, created_at:'2026-07-24T04:00:00Z',updated_at:'2026-07-24T05:00:00Z' },
+      { id:'demo-note-private', title:'Personal Interview Notes', category:'network', visibility:'private', status:'draft', featured:false, summary:'Private preparation notes.', content:'Owner-only draft content.', tags:['Private'], cover_url:'', document_url:'', sort_order:10, created_at:now(),updated_at:now() }
+    ],
+    settings: {
+      headline: 'Network Infrastructure & Security Engineer',
+      email: 'mohamed.sherif@example.com',
+      linkedin_url: 'https://www.linkedin.com/',
+      cv_url: '',
+      location: '6th of October City, Giza, Egypt'
+    },
+    cv: {
+      updated_at: now(),
+      profile: {
+        full_name: 'Mohamed Sherif Abdelaziz Sand',
+        title: 'Network Infrastructure & Security Engineer',
+        email: 'mohamed.sherif@example.com',
+        phone: '',
+        location: '6th of October City, Giza, Egypt',
+        linkedin: 'https://www.linkedin.com/',
+        github: 'https://github.com/',
+        website: '',
+        summary: 'Network Infrastructure & Security Engineer with hands-on experience supporting multi-site enterprise environments. Experienced with Cisco switching and wireless, FortiGate security, Windows Server, VMware, Zabbix monitoring and Python/Flask automation.'
+      },
+      section_visibility: {
+        experience: true,
+        skills: true,
+        projects: true,
+        education: true,
+        certifications: true,
+        languages: true,
+        custom: true
+      },
+      experience: [
+        {
+          id: uid(),
+          role: 'IT Engineer — Network Responsibilities',
+          company: 'Canal Sugar',
+          location: 'Cairo, Egypt',
+          period: 'Nov 2025 – Present',
+          bullets: [
+            'Support enterprise infrastructure across three production sites serving approximately 750 users.',
+            'Operate Cisco C9500/C9300/C9200L switching, FortiGate 201G HA, Cisco WLC 9800 HA, wireless and monitoring platforms.',
+            'Manage VLANs, LACP, spanning tree, ACLs, DHCP relay, SD-WAN, NAT, VPN, FSSO and captive portal services.',
+            'Develop Python/Flask tools for availability reporting, incidents, change control and operational dashboards.'
+          ]
+        },
+        {
+          id: uid(),
+          role: 'IT Helpdesk Specialist / IT Senior Executive',
+          company: 'ISON Xperiences',
+          location: 'Egypt',
+          period: 'Jul 2024 – Nov 2025',
+          bullets: [
+            'Supported more than 1,200 users across Active Directory, VPN, LAN/Wi-Fi, Outlook, printers and endpoints.',
+            'Handled 20+ incidents daily while maintaining approximately 95% SLA performance.'
+          ]
+        },
+        {
+          id: uid(),
+          role: 'Technical Support Specialist',
+          company: 'Brains Company',
+          location: 'Egypt',
+          period: 'Jun 2022 – Apr 2023',
+          bullets: ['Provided Windows, Microsoft 365, printer, VPN, Active Directory and desktop support.']
+        }
+      ],
+      skill_groups: [
+        { id: uid(), name: 'Networking', items: ['Cisco C9500/C9300/C9200L', 'VLANs', 'STP/RSTP', 'LACP', 'OSPF', 'EIGRP', 'BGP', 'ACLs', 'NAT', 'VPN'] },
+        { id: uid(), name: 'Security', items: ['FortiGate HA', 'SD-WAN', 'FSSO', 'SSL VPN', 'IPsec VPN', 'IPS', 'Antivirus', 'Web Filtering', 'F5 LTM/ASM', 'Wazuh SIEM'] },
+        { id: uid(), name: 'Systems & Tools', items: ['Windows Server', 'Active Directory', 'DNS', 'DHCP', 'VMware ESXi', 'Linux', 'Zabbix', 'Python', 'Flask', 'GitHub'] }
+      ],
+      projects: [
+        { id: uid(), title: 'Fleet Request Management System', subtitle: 'Python / Flask workflow platform', description: 'Designed a multi-role request, approval, allocation, rental and reporting workflow with availability and conflict controls.', url: '' },
+        { id: uid(), title: 'Zabbix Availability & Performance Engine', subtitle: 'Monitoring automation', description: 'Built weekly/monthly availability reporting, event merging, Top 10 analysis, date filters and scheduled email delivery.', url: '' },
+        { id: uid(), title: 'Unified IT Operations Portal', subtitle: 'Incident and change management', description: 'Created RBAC-based incident, change, audit, reporting and health-check modules for internal IT operations.', url: '' }
+      ],
+      education: [
+        { id: uid(), degree: 'B.Sc. in Computer Science', institution: 'Minia University', location: 'Egypt', period: '2018 – 2022', details: 'Excellent with Honors. Graduation Project: Computer Network Infrastructure — Excellent.' }
+      ],
+      certifications: [
+        { id: uid(), name: 'CCNA & CCNP Enterprise Training', issuer: 'NTI / Brains', year: '' },
+        { id: uid(), name: 'FortiGate Security Training', issuer: 'Self-study / Hands-on', year: '' },
+        { id: uid(), name: 'F5 LTM & ASM WAF Training', issuer: '', year: '' },
+        { id: uid(), name: 'Kaspersky Endpoint & EDR Training', issuer: '', year: '' }
+      ],
+      languages: [
+        { id: uid(), name: 'Arabic', level: 'Native' },
+        { id: uid(), name: 'English', level: 'Professional working proficiency' }
+      ],
+      custom_sections: []
+    }
+  };
+
+  function clone(value) { return JSON.parse(JSON.stringify(value)); }
+
+  function ensureDemoData() {
+    if (!localStorage.getItem('ms_portfolio_projects')) localStorage.setItem('ms_portfolio_projects', JSON.stringify(defaults.projects));
+    if (!localStorage.getItem('ms_portfolio_notes')) localStorage.setItem('ms_portfolio_notes', JSON.stringify(defaults.notes));
+    if (!localStorage.getItem('ms_portfolio_settings')) localStorage.setItem('ms_portfolio_settings', JSON.stringify(defaults.settings));
+    if (!localStorage.getItem('ms_portfolio_cv')) localStorage.setItem('ms_portfolio_cv', JSON.stringify(defaults.cv));
+  }
+
+  function demoRead(type) {
+    ensureDemoData();
+    if (type === 'settings') return JSON.parse(localStorage.getItem('ms_portfolio_settings'));
+    if (type === 'cv') return JSON.parse(localStorage.getItem('ms_portfolio_cv'));
+    return JSON.parse(localStorage.getItem(`ms_portfolio_${type}`) || '[]');
+  }
+
+  function demoWrite(type, value) {
+    const key = type === 'settings' ? 'ms_portfolio_settings' : type === 'cv' ? 'ms_portfolio_cv' : `ms_portfolio_${type}`;
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  async function isOwner() {
+    if (!client) return sessionStorage.getItem('ms_demo_admin') === 'true';
+    const { data: { session } } = await client.auth.getSession();
+    if (!session) return false;
+    const { data, error } = await client.from('profiles').select('role').eq('id', session.user.id).single();
+    return !error && data?.role === 'owner';
+  }
+
+  const service = {
+    isDemo: !client,
+    client,
+    defaults,
+    uid,
+    async login(username, password) {
+      const expectedUsername = cfg.AUTH_USERNAME || cfg.DEMO_USERNAME || 'mohamed.sherif';
+      if (username !== expectedUsername) throw new Error('Incorrect username or password.');
+
+      if (!client) {
+        if (username === cfg.DEMO_USERNAME && password === cfg.DEMO_PASSWORD) {
+          sessionStorage.setItem('ms_demo_admin', 'true');
+          return { user: { username }, demo: true };
+        }
+        throw new Error('Incorrect username or password.');
+      }
+
+      const authEmail = String(cfg.AUTH_EMAIL || '').trim();
+      if (!authEmail || authEmail === 'YOUR_SUPABASE_OWNER_EMAIL') {
+        throw new Error('Production login email is not configured in config.js.');
+      }
+
+      const { data, error } = await client.auth.signInWithPassword({ email: authEmail, password });
+      if (error) throw error;
+      const owner = await isOwner();
+      if (!owner) {
+        await client.auth.signOut();
+        throw new Error('This account does not have owner access.');
+      }
+      if (data?.user) data.user.user_metadata = { ...(data.user.user_metadata || {}), username };
+      return data;
+    },
+    async logout() {
+      if (!client) sessionStorage.removeItem('ms_demo_admin');
+      else await client.auth.signOut();
+    },
+    async getSession() {
+      if (!client) return sessionStorage.getItem('ms_demo_admin') === 'true' ? { user: { username: cfg.DEMO_USERNAME || cfg.AUTH_USERNAME } } : null;
+      const { data: { session } } = await client.auth.getSession();
+      return session;
+    },
+    async ensureAdmin() { return isOwner(); },
+    async getPublic(type) {
+      if (!client) return demoRead(type).filter(x => x.visibility === 'public' && x.status === 'published').sort((a,b) => (a.sort_order||99)-(b.sort_order||99));
+      const { data, error } = await client.from(type).select('*').eq('visibility','public').eq('status','published').order('sort_order',{ascending:true}).order('updated_at',{ascending:false});
+      if (error) throw error;
+      return data || [];
+    },
+    async listAll(type) {
+      if (!(await isOwner())) throw new Error('Owner access required.');
+      if (!client) return demoRead(type).sort((a,b) => new Date(b.updated_at)-new Date(a.updated_at));
+      const { data, error } = await client.from(type).select('*').order('updated_at',{ascending:false});
+      if (error) throw error;
+      return data || [];
+    },
+    async save(type, item) {
+      if (!(await isOwner())) throw new Error('Owner access required.');
+      const normalized = { ...item, featured: item.featured === true || item.featured === 'true', tags: Array.isArray(item.tags) ? item.tags : String(item.tags||'').split(',').map(x=>x.trim()).filter(Boolean), updated_at: now() };
+      if (!client) {
+        const items = demoRead(type);
+        const index = items.findIndex(x => x.id === normalized.id);
+        if (index >= 0) items[index] = { ...items[index], ...normalized };
+        else items.unshift({ ...normalized, id: uid(), created_at: now(), sort_order: items.length + 1 });
+        demoWrite(type, items);
+        return normalized;
+      }
+      const payload = { ...normalized };
+      if (!payload.id) delete payload.id;
+      const { data, error } = await client.from(type).upsert(payload).select().single();
+      if (error) throw error;
+      return data;
+    },
+    async remove(type, id) {
+      if (!(await isOwner())) throw new Error('Owner access required.');
+      if (!client) {
+        demoWrite(type, demoRead(type).filter(x => x.id !== id));
+        return;
+      }
+      const { error } = await client.from(type).delete().eq('id', id);
+      if (error) throw error;
+    },
+    async getSettings() {
+      if (!client) return demoRead('settings');
+      const { data, error } = await client.from('site_settings').select('*').eq('id',1).maybeSingle();
+      if (error) throw error;
+      return data || clone(defaults.settings);
+    },
+    async saveSettings(settings) {
+      if (!(await isOwner())) throw new Error('Owner access required.');
+      if (!client) { demoWrite('settings', settings); return settings; }
+      const { data, error } = await client.from('site_settings').upsert({ id:1, ...settings, updated_at:now() }).select().single();
+      if (error) throw error;
+      return data;
+    },
+    async getCV() {
+      if (!client) return demoRead('cv');
+      const { data, error } = await client.from('cv_documents').select('data,updated_at').eq('id',1).maybeSingle();
+      if (error) throw error;
+      if (!data?.data) return clone(defaults.cv);
+      return { ...data.data, updated_at: data.updated_at || data.data.updated_at };
+    },
+    async saveCV(cv) {
+      if (!(await isOwner())) throw new Error('Owner access required.');
+      const payload = { ...cv, updated_at: now() };
+      if (!client) {
+        demoWrite('cv', payload);
+        return payload;
+      }
+      const { data, error } = await client.from('cv_documents').upsert({ id:1, data:payload, updated_at:payload.updated_at }).select('data,updated_at').single();
+      if (error) throw error;
+      return { ...data.data, updated_at: data.updated_at };
+    }
+  };
+
+  window.PortfolioData = service;
+})();

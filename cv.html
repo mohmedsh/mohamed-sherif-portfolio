@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Latest CV | Mohamed Sherif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="cv.css" />
+</head>
+<body>
+  <header class="cv-actions no-print">
+    <a href="index.html" class="cv-action secondary">← Portfolio</a>
+    <div class="cv-action-info"><strong>Live CV</strong><span id="latestVersionLabel">Loading latest saved version…</span></div>
+    <div class="cv-action-buttons">
+      <a href="admin.html" class="cv-action secondary">Edit CV</a>
+      <button id="printCvBtn" class="cv-action secondary" type="button">Print</button>
+      <button id="downloadPdfBtn" class="cv-action primary" type="button">Download latest PDF</button>
+    </div>
+  </header>
+
+  <main class="cv-stage">
+    <article id="cvDocument" class="cv-document" aria-live="polite">
+      <div class="cv-loading">Loading the latest CV…</div>
+    </article>
+  </main>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="config.js"></script>
+  <script src="data-service.js"></script>
+  <script src="cv.js"></script>
+</body>
+</html>

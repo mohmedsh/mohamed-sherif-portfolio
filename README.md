@@ -1,11 +1,12 @@
-# Mohamed Sherif Ultimate Portfolio
+# Mohamed Sherif Portfolio Hub
 
-Single-file static portfolio ready for GitHub Pages.
+GitHub Pages-ready portfolio, knowledge hub and dynamic CV Builder.
 
-## Upload
-1. Upload `index.html` to the root of your GitHub repository.
-2. Settings → Pages → Deploy from a branch.
-3. Choose `main` and `/(root)`.
-4. Save.
+Demo admin login:
 
-No assets folder is required. The profile image and CV are embedded inside `index.html`.
+```text
+Username: mohamed.sherif
+Password: 123
+```
+
+The demo stores data only in the browser and is not suitable for private live files. For production, connect Supabase, set `AUTH_EMAIL` to the owner's real Supabase email, and use a strong production password. Arabic setup instructions are in `README_AR.md`.
