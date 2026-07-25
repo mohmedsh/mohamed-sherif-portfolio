@@ -21,7 +21,7 @@
         <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" placeholder="••••••••" /></label>
         <button class="btn primary full" type="submit">Sign in</button>
       </form>
-      <div id="demoCredentials" class="demo-box"><strong>Demo access</strong><span>Username: mohamed.sherif</span><span>Password: 123</span><small>Demo changes are saved only in this browser. A stronger password is required before storing private live files.</small></div>
+      <div class="security-note"><strong>No password is stored in this website.</strong><span>Authentication is verified by Supabase and protected by database access policies.</span></div>
       <p id="loginMessage" class="form-message"></p>
       <a class="back-link" href="index.html">← Back to portfolio</a>
     </div>
@@ -29,7 +29,7 @@
 
   <div id="dashboardView" class="dashboard-view hidden">
     <aside class="admin-sidebar">
-      <a class="brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Control Center</strong><small id="modeBadge">Demo mode</small></span></a>
+      <a class="brand" href="index.html"><span class="brand-mark">MS</span><span class="brand-copy"><strong>Control Center</strong><small id="modeBadge">Secure administration</small></span></a>
       <nav class="admin-nav">
         <button class="active" data-view="overview"><span>⌂</span> Overview</button>
         <button data-view="cv"><span>CV</span> CV Builder</button>
@@ -166,7 +166,7 @@
         <label class="span-2">Full content<textarea name="content" rows="7" placeholder="Problem, solution, architecture, results..."></textarea></label>
         <label class="span-2">Technologies / tags<input name="tags" type="text" placeholder="Cisco, FortiGate, Python, Flask" /></label>
         <label>Cover image URL<input name="cover_url" type="url" placeholder="https://..." /></label>
-        <label>Document / demo URL<input name="document_url" type="url" placeholder="https://..." /></label>
+        <label>Document / live URL<input name="document_url" type="url" placeholder="https://..." /></label>
       </div>
       <div class="editor-actions"><button id="deleteItemBtn" class="btn danger hidden" type="button">Delete</button><div class="spacer"></div><button id="cancelEditorBtn" class="btn secondary" type="button">Cancel</button><button class="btn primary" type="submit">Save content</button></div>
       <p id="editorMessage" class="form-message"></p>

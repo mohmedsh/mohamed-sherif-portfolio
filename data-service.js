@@ -9,42 +9,35 @@
   const defaults = {
     projects: [
       {
-        id: 'demo-project-1', title: 'Fleet Request Management System', category: 'software', visibility: 'public', status: 'published', featured: true,
+        id: 'seed-project-1', title: 'Fleet Request Management System', category: 'software', visibility: 'public', status: 'published', featured: true,
         summary: 'Enterprise vehicle-request workflow covering approvals, availability, conflict prevention, procurement and operational reporting.',
         content: 'A complete workflow platform designed for requesters, fleet operations and procurement. The system validates booking windows, prevents vehicle and driver conflicts, handles internal assignment or rental, and provides dashboards, reports and email notifications.\n\nKey impact:\n• Reduced manual coordination and repeated calls.\n• Added traceable approval and assignment history.\n• Improved vehicle and driver availability visibility.\n• Centralized request, extension and completion workflows.',
         tags: ['Python', 'Flask', 'SQLite', 'Workflow', 'Fleet'], cover_url: '', document_url: '', sort_order: 1, created_at: '2026-07-18T10:00:00Z', updated_at: '2026-07-24T10:00:00Z'
       },
       {
-        id: 'demo-project-2', title: 'Zabbix Availability & Performance Engine', category: 'network', visibility: 'public', status: 'published', featured: true,
+        id: 'seed-project-2', title: 'Zabbix Availability & Performance Engine', category: 'network', visibility: 'public', status: 'published', featured: true,
         summary: 'Automated weekly and monthly availability reporting with issue merging, filtering, rankings and management-ready output.',
         content: 'A Python/Flask reporting engine connected to Zabbix data. It classifies downtime and performance events, merges short incident windows, calculates availability and produces practical management summaries.\n\nCapabilities include date filters, host categories, Top 10 reports, automated email scheduling and branded output.',
         tags: ['Zabbix', 'Python', 'Flask', 'Monitoring', 'Reporting'], cover_url: '', document_url: '', sort_order: 2, created_at: '2026-06-12T10:00:00Z', updated_at: '2026-07-20T10:00:00Z'
       },
       {
-        id: 'demo-project-3', title: 'Enterprise Network & Security Operations', category: 'security', visibility: 'public', status: 'published', featured: true,
+        id: 'seed-project-3', title: 'Enterprise Network & Security Operations', category: 'security', visibility: 'public', status: 'published', featured: true,
         summary: 'Operational support for a multi-site Cisco and Fortinet environment serving production facilities and enterprise users.',
         content: 'Hands-on operations across Cisco C9500 core, C9300 distribution, C9200L access, FortiGate 201G HA, Cisco WLC 9800 HA and enterprise monitoring.\n\nScope includes VLANs, LACP, spanning tree, ACLs, DHCP relay, SD-WAN, NAT, VPN, captive portal, FSSO, wireless services and documentation.',
         tags: ['Cisco', 'FortiGate', 'WLC 9800', 'SD-WAN', 'HA'], cover_url: '', document_url: '', sort_order: 3, created_at: '2025-11-20T10:00:00Z', updated_at: '2026-07-22T10:00:00Z'
       },
       {
-        id: 'demo-project-4', title: 'Soft4U Market ERP', category: 'software', visibility: 'public', status: 'published', featured: false,
+        id: 'seed-project-4', title: 'Soft4U Market ERP', category: 'software', visibility: 'public', status: 'published', featured: false,
         summary: 'Retail ERP covering POS, inventory, purchasing, batches, returns, accounting, RBAC and audit workflows.',
         content: 'A modular retail ERP designed for practical store operations. It includes barcode-based sales, batch and expiry management, supplier purchasing, inventory movements, accounting reports, access control and audit logs.',
         tags: ['ERP', 'POS', 'Inventory', 'Accounting', 'RBAC'], cover_url: '', document_url: '', sort_order: 4, created_at: '2026-05-10T10:00:00Z', updated_at: '2026-07-19T10:00:00Z'
       },
-      {
-        id: 'demo-project-private', title: 'Internal Network Documentation', category: 'network', visibility: 'private', status: 'published', featured: false,
-        summary: 'Private diagrams, addressing plans and operational documentation.',
-        content: 'Owner-only content. This item demonstrates the private visibility option and will never be returned to the public website in production.',
-        tags: ['Private', 'Documentation'], cover_url: '', document_url: '', sort_order: 10, created_at: now(), updated_at: now()
-      }
     ],
     notes: [
-      { id:'demo-note-1', title:'OSPF Operation: Start, Convergence & Change', category:'network', visibility:'public', status:'published', featured:true, summary:'A structured explanation of OSPF neighbor formation, LSDB synchronization, SPF calculation and reconvergence.', content:'Covers router IDs, hello packets, neighbor states, DR/BDR behavior, LSA flooding, SPF calculation and the sequence triggered when a link or network changes.', tags:['OSPF','LSA','SPF'], cover_url:'', document_url:'', sort_order:1, created_at:'2026-07-20T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
-      { id:'demo-note-2', title:'RCNA-WLAN Fundamentals with Cisco Comparison', category:'wireless', visibility:'public', status:'published', featured:true, summary:'Wireless fundamentals explained alongside equivalent Cisco architecture and terminology.', content:'Covers RF basics, channels, roaming, WLAN architecture, access points, controllers, security and a vendor-by-vendor terminology comparison.', tags:['WLAN','RCNA','Cisco'], cover_url:'', document_url:'', sort_order:2, created_at:'2026-07-23T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
-      { id:'demo-note-3', title:'FortiGate HA, SD-WAN & Security Operations', category:'security', visibility:'public', status:'published', featured:false, summary:'Operational notes for HA, SD-WAN rules, VPN, FSSO, NAT and security profiles.', content:'A field-oriented reference covering high availability, session synchronization, SD-WAN steering, NAT/VIP, VPN troubleshooting, FSSO, captive portal and security inspection.', tags:['FortiGate','HA','SD-WAN'], cover_url:'', document_url:'', sort_order:3, created_at:'2026-07-10T10:00:00Z',updated_at:'2026-07-22T10:00:00Z' },
-      { id:'demo-note-4', title:'Route Redistribution & Filtering', category:'network', visibility:'public', status:'published', featured:false, summary:'Redistribution design, route tags, metrics and filtering strategies explained with practical logic.', content:'Explains why redistribution is required, how routing information crosses protocol boundaries, and how filtering and route tagging prevent feedback and unwanted advertisements.', tags:['Redistribution','Filtering','Routing'], cover_url:'', document_url:'', sort_order:4, created_at:'2026-07-24T04:00:00Z',updated_at:'2026-07-24T05:00:00Z' },
-      { id:'demo-note-private', title:'Personal Interview Notes', category:'network', visibility:'private', status:'draft', featured:false, summary:'Private preparation notes.', content:'Owner-only draft content.', tags:['Private'], cover_url:'', document_url:'', sort_order:10, created_at:now(),updated_at:now() }
+      { id:'seed-note-1', title:'OSPF Operation: Start, Convergence & Change', category:'network', visibility:'public', status:'published', featured:true, summary:'A structured explanation of OSPF neighbor formation, LSDB synchronization, SPF calculation and reconvergence.', content:'Covers router IDs, hello packets, neighbor states, DR/BDR behavior, LSA flooding, SPF calculation and the sequence triggered when a link or network changes.', tags:['OSPF','LSA','SPF'], cover_url:'', document_url:'', sort_order:1, created_at:'2026-07-20T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
+      { id:'seed-note-2', title:'RCNA-WLAN Fundamentals with Cisco Comparison', category:'wireless', visibility:'public', status:'published', featured:true, summary:'Wireless fundamentals explained alongside equivalent Cisco architecture and terminology.', content:'Covers RF basics, channels, roaming, WLAN architecture, access points, controllers, security and a vendor-by-vendor terminology comparison.', tags:['WLAN','RCNA','Cisco'], cover_url:'', document_url:'', sort_order:2, created_at:'2026-07-23T10:00:00Z',updated_at:'2026-07-24T10:00:00Z' },
+      { id:'seed-note-3', title:'FortiGate HA, SD-WAN & Security Operations', category:'security', visibility:'public', status:'published', featured:false, summary:'Operational notes for HA, SD-WAN rules, VPN, FSSO, NAT and security profiles.', content:'A field-oriented reference covering high availability, session synchronization, SD-WAN steering, NAT/VIP, VPN troubleshooting, FSSO, captive portal and security inspection.', tags:['FortiGate','HA','SD-WAN'], cover_url:'', document_url:'', sort_order:3, created_at:'2026-07-10T10:00:00Z',updated_at:'2026-07-22T10:00:00Z' },
+      { id:'seed-note-4', title:'Route Redistribution & Filtering', category:'network', visibility:'public', status:'published', featured:false, summary:'Redistribution design, route tags, metrics and filtering strategies explained with practical logic.', content:'Explains why redistribution is required, how routing information crosses protocol boundaries, and how filtering and route tagging prevent feedback and unwanted advertisements.', tags:['Redistribution','Filtering','Routing'], cover_url:'', document_url:'', sort_order:4, created_at:'2026-07-24T04:00:00Z',updated_at:'2026-07-24T05:00:00Z' },
     ],
     settings: {
       headline: 'Network Infrastructure & Security Engineer',
@@ -138,27 +131,12 @@
 
   function clone(value) { return JSON.parse(JSON.stringify(value)); }
 
-  function ensureDemoData() {
-    if (!localStorage.getItem('ms_portfolio_projects')) localStorage.setItem('ms_portfolio_projects', JSON.stringify(defaults.projects));
-    if (!localStorage.getItem('ms_portfolio_notes')) localStorage.setItem('ms_portfolio_notes', JSON.stringify(defaults.notes));
-    if (!localStorage.getItem('ms_portfolio_settings')) localStorage.setItem('ms_portfolio_settings', JSON.stringify(defaults.settings));
-    if (!localStorage.getItem('ms_portfolio_cv')) localStorage.setItem('ms_portfolio_cv', JSON.stringify(defaults.cv));
-  }
-
-  function demoRead(type) {
-    ensureDemoData();
-    if (type === 'settings') return JSON.parse(localStorage.getItem('ms_portfolio_settings'));
-    if (type === 'cv') return JSON.parse(localStorage.getItem('ms_portfolio_cv'));
-    return JSON.parse(localStorage.getItem(`ms_portfolio_${type}`) || '[]');
-  }
-
-  function demoWrite(type, value) {
-    const key = type === 'settings' ? 'ms_portfolio_settings' : type === 'cv' ? 'ms_portfolio_cv' : `ms_portfolio_${type}`;
-    localStorage.setItem(key, JSON.stringify(value));
-  }
+  const backendError = () => new Error(
+    'Secure admin backend is not configured. Add the Supabase URL, anon key and owner email to config.js, then run supabase-schema.sql.'
+  );
 
   async function isOwner() {
-    if (!client) return sessionStorage.getItem('ms_demo_admin') === 'true';
+    if (!client) return false;
     const { data: { session } } = await client.auth.getSession();
     if (!session) return false;
     const { data, error } = await client.from('profiles').select('role').eq('id', session.user.id).single();
@@ -166,114 +144,135 @@
   }
 
   const service = {
-    isDemo: !client,
+    isConfigured: Boolean(client),
+    isReadOnlyFallback: !client,
     client,
     defaults,
     uid,
-    async login(username, password) {
-      const expectedUsername = cfg.AUTH_USERNAME || cfg.DEMO_USERNAME || 'mohamed.sherif';
-      if (username !== expectedUsername) throw new Error('Incorrect username or password.');
 
-      if (!client) {
-        if (username === cfg.DEMO_USERNAME && password === cfg.DEMO_PASSWORD) {
-          sessionStorage.setItem('ms_demo_admin', 'true');
-          return { user: { username }, demo: true };
-        }
-        throw new Error('Incorrect username or password.');
-      }
+    async login(username, password) {
+      if (!client) throw backendError();
+
+      const expectedUsername = String(cfg.AUTH_USERNAME || 'mohamed.sherif').trim();
+      if (username !== expectedUsername) throw new Error('Incorrect username or password.');
 
       const authEmail = String(cfg.AUTH_EMAIL || '').trim();
       if (!authEmail || authEmail === 'YOUR_SUPABASE_OWNER_EMAIL') {
-        throw new Error('Production login email is not configured in config.js.');
+        throw new Error('Owner email is not configured in config.js.');
       }
 
       const { data, error } = await client.auth.signInWithPassword({ email: authEmail, password });
-      if (error) throw error;
-      const owner = await isOwner();
-      if (!owner) {
+      if (error) throw new Error('Incorrect username or password.');
+
+      if (!(await isOwner())) {
         await client.auth.signOut();
         throw new Error('This account does not have owner access.');
       }
-      if (data?.user) data.user.user_metadata = { ...(data.user.user_metadata || {}), username };
+
+      if (data?.user) {
+        data.user.user_metadata = { ...(data.user.user_metadata || {}), username: expectedUsername };
+      }
       return data;
     },
+
     async logout() {
-      if (!client) sessionStorage.removeItem('ms_demo_admin');
-      else await client.auth.signOut();
+      if (client) await client.auth.signOut();
     },
+
     async getSession() {
-      if (!client) return sessionStorage.getItem('ms_demo_admin') === 'true' ? { user: { username: cfg.DEMO_USERNAME || cfg.AUTH_USERNAME } } : null;
+      if (!client) return null;
       const { data: { session } } = await client.auth.getSession();
       return session;
     },
-    async ensureAdmin() { return isOwner(); },
+
+    async ensureAdmin() {
+      return isOwner();
+    },
+
     async getPublic(type) {
-      if (!client) return demoRead(type).filter(x => x.visibility === 'public' && x.status === 'published').sort((a,b) => (a.sort_order||99)-(b.sort_order||99));
-      const { data, error } = await client.from(type).select('*').eq('visibility','public').eq('status','published').order('sort_order',{ascending:true}).order('updated_at',{ascending:false});
+      if (!client) {
+        return clone(defaults[type] || [])
+          .filter(item => item.visibility === 'public' && item.status === 'published')
+          .sort((a,b) => (a.sort_order || 99) - (b.sort_order || 99));
+      }
+      const { data, error } = await client
+        .from(type)
+        .select('*')
+        .eq('visibility','public')
+        .eq('status','published')
+        .order('sort_order',{ascending:true})
+        .order('updated_at',{ascending:false});
       if (error) throw error;
       return data || [];
     },
+
     async listAll(type) {
+      if (!client) throw backendError();
       if (!(await isOwner())) throw new Error('Owner access required.');
-      if (!client) return demoRead(type).sort((a,b) => new Date(b.updated_at)-new Date(a.updated_at));
       const { data, error } = await client.from(type).select('*').order('updated_at',{ascending:false});
       if (error) throw error;
       return data || [];
     },
+
     async save(type, item) {
+      if (!client) throw backendError();
       if (!(await isOwner())) throw new Error('Owner access required.');
-      const normalized = { ...item, featured: item.featured === true || item.featured === 'true', tags: Array.isArray(item.tags) ? item.tags : String(item.tags||'').split(',').map(x=>x.trim()).filter(Boolean), updated_at: now() };
-      if (!client) {
-        const items = demoRead(type);
-        const index = items.findIndex(x => x.id === normalized.id);
-        if (index >= 0) items[index] = { ...items[index], ...normalized };
-        else items.unshift({ ...normalized, id: uid(), created_at: now(), sort_order: items.length + 1 });
-        demoWrite(type, items);
-        return normalized;
-      }
+      const normalized = {
+        ...item,
+        featured: item.featured === true || item.featured === 'true',
+        tags: Array.isArray(item.tags) ? item.tags : String(item.tags || '').split(',').map(x => x.trim()).filter(Boolean),
+        updated_at: now()
+      };
       const payload = { ...normalized };
       if (!payload.id) delete payload.id;
       const { data, error } = await client.from(type).upsert(payload).select().single();
       if (error) throw error;
       return data;
     },
+
     async remove(type, id) {
+      if (!client) throw backendError();
       if (!(await isOwner())) throw new Error('Owner access required.');
-      if (!client) {
-        demoWrite(type, demoRead(type).filter(x => x.id !== id));
-        return;
-      }
       const { error } = await client.from(type).delete().eq('id', id);
       if (error) throw error;
     },
+
     async getSettings() {
-      if (!client) return demoRead('settings');
+      if (!client) return clone(defaults.settings);
       const { data, error } = await client.from('site_settings').select('*').eq('id',1).maybeSingle();
       if (error) throw error;
       return data || clone(defaults.settings);
     },
+
     async saveSettings(settings) {
+      if (!client) throw backendError();
       if (!(await isOwner())) throw new Error('Owner access required.');
-      if (!client) { demoWrite('settings', settings); return settings; }
-      const { data, error } = await client.from('site_settings').upsert({ id:1, ...settings, updated_at:now() }).select().single();
+      const { data, error } = await client
+        .from('site_settings')
+        .upsert({ id:1, ...settings, updated_at:now() })
+        .select()
+        .single();
       if (error) throw error;
       return data;
     },
+
     async getCV() {
-      if (!client) return demoRead('cv');
+      if (!client) return clone(defaults.cv);
       const { data, error } = await client.from('cv_documents').select('data,updated_at').eq('id',1).maybeSingle();
       if (error) throw error;
       if (!data?.data) return clone(defaults.cv);
       return { ...data.data, updated_at: data.updated_at || data.data.updated_at };
     },
+
     async saveCV(cv) {
+      if (!client) throw backendError();
       if (!(await isOwner())) throw new Error('Owner access required.');
       const payload = { ...cv, updated_at: now() };
-      if (!client) {
-        demoWrite('cv', payload);
-        return payload;
-      }
-      const { data, error } = await client.from('cv_documents').upsert({ id:1, data:payload, updated_at:payload.updated_at }).select('data,updated_at').single();
+      const { data, error } = await client
+        .from('cv_documents')
+        .upsert({ id:1, data:payload, updated_at:payload.updated_at })
+        .select('data,updated_at')
+        .single();
       if (error) throw error;
       return { ...data.data, updated_at: data.updated_at };
     }

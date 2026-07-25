@@ -45,7 +45,7 @@ function renderNotes(query='') {
 function openDetails(kind,id) {
   const item = (kind === 'project' ? allProjects : allNotes).find(x => x.id === id);
   if (!item) return;
-  const action = item.document_url && item.document_url !== '#' ? `<div class="details-actions"><a class="btn primary" href="${escapeHtml(item.document_url)}" target="_blank" rel="noopener">Open document / demo</a></div>` : '';
+  const action = item.document_url && item.document_url !== '#' ? `<div class="details-actions"><a class="btn primary" href="${escapeHtml(item.document_url)}" target="_blank" rel="noopener">Open document / live project</a></div>` : '';
   document.querySelector('#dialogContent').innerHTML = `<div class="details-hero"><p class="eyebrow">${escapeHtml(item.category)} / ${kind}</p><h2>${escapeHtml(item.title)}</h2></div><div class="details-body"><div class="chip-row">${(item.tags||[]).map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><p>${escapeHtml(item.content || item.summary)}</p>${action}<small>Last updated ${formatDate(item.updated_at)}</small></div>`;
   document.querySelector('#detailsDialog').showModal();
 }

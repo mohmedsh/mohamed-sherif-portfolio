@@ -46,7 +46,7 @@ function showDashboard(session) {
   $('#loginView').classList.add('hidden');
   $('#dashboardView').classList.remove('hidden');
   $('#adminEmail').textContent = session?.user?.user_metadata?.username || session?.user?.username || window.PORTFOLIO_CONFIG?.AUTH_USERNAME || session?.user?.email || 'Owner';
-  $('#modeBadge').textContent = Data.isDemo ? 'Demo mode • browser only' : 'Supabase • secure mode';
+  $('#modeBadge').textContent = 'Supabase • secure mode';
 }
 
 function openEditor(type,item=null) {
@@ -308,7 +308,11 @@ $('#downloadLatestCvBtn').addEventListener('click',e=>{e.preventDefault();saveAn
 window.addEventListener('beforeunload',e=>{if(cvDirty){e.preventDefault();e.returnValue='';}});
 
 (async()=>{
-  $('#demoCredentials').classList.toggle('hidden',!Data.isDemo);
+  if (!Data.isConfigured) {
+    document.querySelector('.login-card')?.classList.add('backend-missing');
+    setMessage($('#loginMessage'),'Secure login is disabled until Supabase is configured. No password exists in the website source.','error');
+    return;
+  }
   const session=await Data.getSession();
   if(session && await Data.ensureAdmin()) { showDashboard(session); await Promise.all([loadData(),loadSettings(),loadCV()]); }
 })();
